@@ -216,19 +216,19 @@ function generatePassword() {
 				generatedPassword += generateCharacter(characterNum);
 			}
 		} else if (hasUpperCase) {
-      for (let i = 0; i < passwordLength; i++) {
+			for (let i = 0; i < passwordLength; i++) {
 				let characterNum;
 				characterNum = randomForUpperCase();
 				generatedPassword += generateCharacter(characterNum);
 			}
 		} else if (hasSpecialChar) {
-      for (let i = 0; i < passwordLength; i++) {
+			for (let i = 0; i < passwordLength; i++) {
 				let characterNum;
 				characterNum = randomForSpecialChar();
 				generatedPassword += generateCharacter(characterNum);
 			}
 		} else {
-      for (let i = 0; i < passwordLength; i++) {
+			for (let i = 0; i < passwordLength; i++) {
 				let characterNum;
 				characterNum = randomForNumbers();
 				generatedPassword += generateCharacter(characterNum);
@@ -242,7 +242,8 @@ function generatePassword() {
 	}
 
 	// return the finished password
-	// TODO: delete the first number before returning the value
+	// delete the first number before returning the value
+	generatedPassword = generatedPassword.substring(1);
 	return generatedPassword;
 }
 
