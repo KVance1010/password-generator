@@ -8,7 +8,7 @@ let hasSpecialChar = false;
 let generateBtn = document.querySelector('#generate');
 
 function generatePassword() {
-	let generatedPassword;
+	let generatedPassword = '1';
 	// prompt for password validation :  number of characters 8-128
 	passwordLength = prompt(
 		'Please the number of characters in your password',
@@ -44,65 +44,217 @@ function generatePassword() {
 
 	// validation that one or more criteria was selected
 	if (hasLowerCase || hasNumber || hasSpecialChar || hasUpperCase) {
-		
-    if (hasLowerCase && hasNumber && hasSpecialChar && hasUpperCase) {
-			// TODO: generate the random number generator to select which category will be used for each character
-      // TODO: use a for loop to generate the number of characters for the password length
-      // TODO: add each character to the createdPassword
+		//
+		if (hasLowerCase && hasNumber && hasSpecialChar && hasUpperCase) {
+			for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToFour();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForLowerCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForUpperCase();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					case 3:
+						characterNum = randomForNumbers();
+						console.log(characterNum);
+						console.log('case 3');
+						break;
+					case 4:
+						characterNum = randomForSpecialChar();
+						console.log(characterNum);
+						console.log('case 4');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase && hasNumber && hasSpecialChar) {
-			// TODO:
+			for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToThree();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForLowerCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForNumbers();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					case 3:
+						characterNum = randomForSpecialChar();
+						console.log(characterNum);
+						console.log('case 3');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasUpperCase && hasNumber && hasSpecialChar) {
-			// TODO:
+      for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToThree();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForUpperCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForNumbers();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					case 3:
+						characterNum = randomForSpecialChar();
+						console.log(characterNum);
+						console.log('case 3');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase && hasNumber && hasUpperCase) {
-			// TODO:
+      for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToThree();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForLowerCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForNumbers();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					case 3:
+						characterNum = randomForUpperCase();
+						console.log(characterNum);
+						console.log('case 3');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase && hasUpperCase && hasSpecialChar) {
-			// TODO:
+      for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToThree();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForLowerCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForUpperCase();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					case 3:
+						characterNum = randomForSpecialChar();
+						console.log(characterNum);
+						console.log('case 3');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase && hasUpperCase) {
-			// TODO:
+      for (let i = 0; i < passwordLength; i++) {
+        let temp = generateOneToTwo();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForLowerCase();
+						console.log(characterNum);
+						console.log('case 1');
+						break;
+					case 2:
+						characterNum = randomForNumbers();
+						console.log(characterNum);
+						console.log('case 2');
+						break;
+					default:
+						console.log('default');
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase && hasNumber) {
-			// TODO:
+			let temp = generateOneToTwo();
 		} else if (hasLowerCase && hasSpecialChar) {
-			// TODO:
+			let temp = generateOneToTwo();
 		} else if (hasUpperCase && hasNumber) {
-			// TODO:
+			let temp = generateOneToTwo();
 		} else if (hasUpperCase && hasSpecialChar) {
-			// TODO:
+			let temp = generateOneToTwo();
 		} else if (hasLowerCase) {
-			// TODO:
 		} else if (hasUpperCase) {
-			// TODO:
 		} else if (hasSpecialChar) {
-			// TODO:
 		} else {
-			// TODO:
 		}
-  
-  // callback function when no criteria have been selected
-  } else {
+
+		// callback function when no criteria have been selected
+	} else {
 		alert('you must select one of the password criteria');
 		generatePassword();
 	}
 
 	// return the finished password
+  // TODO: delete the first number before returning the value
 	return generatedPassword;
+}
+
+// functions to generate switch numbers
+function generateOneToFour() {
+	return Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+}
+
+function generateOneToThree() {
+	return Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+}
+
+function generateOneToTwo() {
+	return Math.floor(Math.random() * (2 - 1 + 1)) + 1;
 }
 
 // generate a random number generator for each of the criteria
 // 97-122
 function randomForLowerCase() {
-	return Math.random() * (97 - 122) + 97;
+	return Math.floor(Math.random() * (122 - 97 + 1)) + 97;
 }
 // 65-90
 function randomForUpperCase() {
-	return Math.random() * (65 - 90) + 65;
+	return Math.floor(Math.random() * (90 - 65 + 1)) + 65;
 }
 // 48-57
 function randomForNumbers() {
-	return Math.random() * (48 - 57) + 48;
+	return Math.floor(Math.random() * (57 - 48 + 1)) + 48;
 }
 // 34-47
 function randomForSpecialChar() {
-	return Math.random() * (34 - 47) + 34;
+	return Math.floor(Math.random() * (47 - 34 + 1)) + 34;
 }
 
 // this generates the different characters from the html unicode value
