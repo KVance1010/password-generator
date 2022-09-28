@@ -1,10 +1,15 @@
-# 03 JavaScript: Password Generator
+# Password Generator
 
-## Your Task
+## Overview 
 
-This week’s challenge requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+This is a password generator that generates a password between 8 and 128 characters. The password generator allows the user to specify if they want the password to have uppercase, lowercase, numbers, and special characters included. The user will not be allowed to create a password if no criteria are selected, the password is more than 128 characters, or the password is less than 8 characters.
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+### learning points
+- JavaScript fundamentals
+- Flow control
+- Input validation
+- Prompts, alerts, and confirm functions
+- Event listeners
 
 ## User Story
 
@@ -14,79 +19,52 @@ I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 ```
 
+
 ## Acceptance Criteria
 
+- GIVEN I need a new, secure password
+- WHEN I click the button to generate a password
+  THEN I am presented with a series of prompts for password criteria
+- WHEN prompted for password criteria
+- THEN I select which criteria to include in the password
+- WHEN prompted for the length of the password
+- THEN I choose a length of at least 8 characters and no more than 128 characters
+- WHEN asked for character types to include in the password
+- THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+- WHEN I answer each prompt
+- THEN my input should be validated and at least one character type should be selected
+- WHEN all prompts are answered
+- THEN a password is generated that matches the selected criteria
+- WHEN the password is generated
+- THEN the password is either displayed in an alert or written to the page
+
+
+## Technologies
+ 
+- **JavaScript**
+
+## CodeSnippets 
+### Converts unicode to a string
+``` javascript
+function generateCharacter(characterNum) {
+	return String.fromCharCode(characterNum);
+}
 ```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+### Generates a random number between 97 and 122
+``` javascript
+function randomForLowerCase() {
+	return Math.floor(Math.random() * (122 - 97 + 1)) + 97;
+}
 ```
 
-## Mock-Up
+## License
 
-The following image shows the web application's appearance and functionality:
+Please refer to the LICENSE in the repo. 
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-challenge-demo.png)
+## Links
 
-## Grading Requirements
+### live Link
+[Live website] https://kvance1010.github.io/password-generator/
 
-This challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+### LinkedIn
+[LinkedIn] https://www.linkedin.com/in/kyle-s-vance
