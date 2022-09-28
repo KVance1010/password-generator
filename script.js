@@ -209,6 +209,20 @@ function generatePassword() {
 				}
 				generatedPassword += generateCharacter(characterNum);
 			}
+		} else if (hasNumber && hasSpecialChar) {
+			for (let i = 0; i < passwordLength; i++) {
+				let temp = generateOneToTwo();
+				let characterNum;
+				switch (temp) {
+					case 1:
+						characterNum = randomForSpecialChar();
+						break;
+					case 2:
+						characterNum = randomForNumbers();
+						break;
+				}
+				generatedPassword += generateCharacter(characterNum);
+			}
 		} else if (hasLowerCase) {
 			for (let i = 0; i < passwordLength; i++) {
 				let characterNum;
